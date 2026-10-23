@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JERAPAH DOLLAR AI</title>
+<style>
+body{background:#87CEEB;text-align:center;font-family:Arial;margin:0;padding:15px}
+h1{font-size:26px}
+#coin{background:gold;padding:12px 20px;border-radius:12px;font-weight:bold;display:inline-block;margin:10px;font-size:20px}
+button{padding:16px;width:92%;max-width:340px;font-size:18px;border:none;border-radius:14px;margin:7px;font-weight:bold;color:#fff}
+.tap{background:#FF4500}.ai{background:#1E90FF}.wd{background:#32CD32}
+.j{font-size:90px;display:block}
+</style>
+</head>
+<body>
+<h1>JERAPAH DOLLAR AI</h1>
+<span class="j">🦒</span>
+<div id="coin">Koin: 0 | $0.00</div><br>
+<button class="tap" onclick="tap()">TAP JOGET! (+10)</button><br>
+<button class="ai" onclick="buy()">BELI AI AUTO (1000)</button><br>
+<button class="wd" onclick="wd()">WD DANA</button>
+<div>AI: <span id="a">0</span> | Auto +<span id="p">0</span>/dtk</div>
+<script>
+let c=Number(localStorage.c||0),al=Number(localStorage.a||0);
+function u(){document.getElementById('coin').innerHTML='Koin: '+c+' | $'+(c/10000).toFixed(2);document.getElementById('a').innerText=al;document.getElementById('p').innerText=al*2;localStorage.c=c;localStorage.a=al}
+function tap(){c+=10;u()}
+function buy(){if(c>=1000){c-=1000;al++;u()}else alert('Butuh 1000! Kamu:'+c)}
+function wd(){let d=c/10000;if(d>=1)alert('WD $'+d.toFixed(2)+' SS ke owner!');else alert('Min 10000! Kamu:'+c)}
+setInterval(()=>{if(al>0){c+=al*2;u()}},1000);u()
+</script>
+</body>
+</html>
